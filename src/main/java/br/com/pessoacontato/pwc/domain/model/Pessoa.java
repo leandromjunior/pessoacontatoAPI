@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 public class Pessoa {
 	
@@ -20,10 +22,13 @@ public class Pessoa {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	
 	@Column(length = 100)
+	@ApiModelProperty(value = "Nome da Pessoa não pode ser vazio")
 	private String nome;
 	
 	@Column(length = 20)
+	@ApiModelProperty(value = "CPF da pessoa não pode ser vazio")
 	private String cpf;
 	
 	@JsonIgnoreProperties("pessoa")
